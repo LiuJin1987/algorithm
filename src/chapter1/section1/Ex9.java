@@ -12,10 +12,14 @@ public class Ex9 {
     public static void main(String[] args) {
         StdOut.println("Input a positive decimal: ");
         int n = StdIn.readInt();
+        StdOut.println(getBinaryString(n));
+    }
+
+    static String getBinaryString(int n) {
         String binaryString = "";
         for (; n > 0; n /= 2) {
             binaryString = (n % 2) + binaryString;
         }
-        StdOut.println(binaryString);
+        return binaryString;
     }
 }
