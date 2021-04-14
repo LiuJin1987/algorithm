@@ -1,41 +1,35 @@
 package chapter1.section1;
 
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-import java.util.Map;
-import java.util.Stack;
+import java.util.Arrays;
 
-/**
- * @author liujinlc
- * @date 2021/4/14 17:24
- **/
 public class Ex23 {
     public static void main(String[] args) {
-        StdOut.println(Euclid.getGreatestCommonDivisor(105, 24));
-        StdOut.println(Euclid.getGreatestCommonDivisor(111, 111));
-        StdOut.println(Euclid.getGreatestCommonDivisor(234, 567));
+        StdOut.print("Input white list filter:");
+        String filter = StdIn.readString();
+        StdOut.print("Input white list filepath:");
+        // resource/testfiles/chapter1/section1/Ex23.txt
+        String path = StdIn.readString();
+        testBinarySearch(path, filter);
     }
 
-    static class Euclid {
-        public static int getGreatestCommonDivisor(int p, int q) {
-            StdOut.printf("p=%d, q=%d%n", p ,q);
-            if (q > p) {
-                int[] swapped = swap(p, q);
-                p = swapped[0];
-                q = swapped[1];
+    private static void testBinarySearch(String whiteListFile, String filter) {
+        In in = new In(whiteListFile);
+        int[] whiteList = in.readAllInts();
+        Arrays.sort(whiteList);
+        StdOut.print("Input a number to check:");
+        String inputString;
+        while (!"exit".equals(inputString = StdIn.readString())) {
+            int key = Integer.parseInt(inputString);
+            if ("+".equals(filter) && Ex22.BinarySearch.rank(key, whiteList) == -1) {
+                StdOut.println(key);
+            } else if ("-".equals(filter) && Ex22.BinarySearch.rank(key, whiteList) != -1) {
+                StdOut.println(key);
             }
-            int remainder = p % q;
-            if (remainder == 0) {
-                return q;
-            }
-            if (remainder > 0) {
-                return getGreatestCommonDivisor(q, p % q);
-            }
-            return 1;
-        }
-
-        private static int[] swap(int p, int q) {
-            return new int[] {q, p};
+            StdOut.print("Input another number to check, input exit to exit:");
         }
     }
 }
