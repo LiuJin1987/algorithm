@@ -28,9 +28,9 @@ public class Ex23 {
         String inputString;
         while (!"exit".equals(inputString = StdIn.readString())) {
             int key = Integer.parseInt(inputString);
-            if ("+".equals(filter) && Ex22.BinarySearch.rank(key, whiteList) == -1) {
+            if ("+".equals(filter) && BinarySearch.rank(key, whiteList) == -1) {
                 StdOut.println(key);
-            } else if ("-".equals(filter) && Ex22.BinarySearch.rank(key, whiteList) != -1) {
+            } else if ("-".equals(filter) && BinarySearch.rank(key, whiteList) != -1) {
                 StdOut.println(key);
             }
             StdOut.print("Input another number to check, input exit to exit:");

@@ -8,31 +8,8 @@ import edu.princeton.cs.algs4.StdOut;
  **/
 public class Ex24 {
     public static void main(String[] args) {
-        StdOut.println(Euclid.getGreatestCommonDivisor(105, 24));
-        StdOut.println(Euclid.getGreatestCommonDivisor(111, 111));
-        StdOut.println(Euclid.getGreatestCommonDivisor(234, 567));
-    }
-
-    static class Euclid {
-        public static int getGreatestCommonDivisor(int p, int q) {
-            StdOut.printf("p=%d, q=%d%n", p ,q);
-            if (q > p) {
-                int[] swapped = swap(p, q);
-                p = swapped[0];
-                q = swapped[1];
-            }
-            int remainder = p % q;
-            if (remainder == 0) {
-                return q;
-            }
-            if (remainder > 0) {
-                return getGreatestCommonDivisor(q, p % q);
-            }
-            return 1;
-        }
-
-        private static int[] swap(int p, int q) {
-            return new int[] {q, p};
-        }
+        StdOut.println(chapter1.section1.Euclid.getGreatestCommonDivisor(105, 24));
+        StdOut.println(chapter1.section1.Euclid.getGreatestCommonDivisor(111, 111));
+        StdOut.println(chapter1.section1.Euclid.getGreatestCommonDivisor(234, 567));
     }
 }

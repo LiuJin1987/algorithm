@@ -25,11 +25,45 @@ public class Ex27 {
     N = 3   K = 1   COUNT2 = 13
     N = 3   K = 2   COUNT2 = 17
     N = 3   K = 3   COUNT2 = 19
-    COUNT2 = A * N + B * K + C
-    A =
-    B =
-    C = 1
-    7751
+    N = 4   K = 0   COUNT2 = 9
+    N = 4   K = 1   COUNT2 = 17
+    N = 4   K = 2   COUNT2 = 23
+    N = 4   K = 3   COUNT2 = 27
+    N = 4   K = 4   COUNT2 = 29
+    N = 5   K = 0   COUNT2 = 11
+    N = 5   K = 1   COUNT2 = 21
+    N = 5   K = 2   COUNT2 = 29
+    N = 5   K = 3   COUNT2 = 35
+    N = 5   K = 4   COUNT2 = 39
+    N = 5   K = 5   COUNT2 = 41
+
+    let K = 0
+    N = 0   COUNT2 = 1
+    N = 1   COUNT2 = 3
+    N = 2   COUNT2 = 5
+    N = 3   COUNT2 = 7
+    N = 4   COUNT2 = 9
+
+    =>  COUNT2 = 2 * N + 1 + f(K)
+    let N = 4
+    K = 0   COUNT2 = 0
+    K = 1   COUNT2 = 8
+    K = 2   COUNT2 = 14
+    K = 3   COUNT2 = 18
+    K = 4   COUNT2 = 20
+
+    f(K) - f(K - 1) = 2 * N - 2 * K
+    f(K - 1) - f(K - 2) = 2 * N - 2 * (K - 1)
+    ......
+    f(1) - f(0) = 2 * N - 2 * 1
+    f(0) = 0
+
+    => f(K) = 2 * K * N - 2 * (K - 1 + 0) * K / 2
+            = 2 * K * N - K * K + K
+    COUNT(N, K) = 2 * N + 1 + 2 * K * N - K * K + K
+                = 2 * 100 + 1 + 2 * 50 * 100 - 50 * 50 + 50
+                = 201 + 10000 - 2500 + 50
+                = 7751
      */
     private static long COUNT2 = 0;
     private static double[][] MATRIX;
@@ -42,7 +76,7 @@ public class Ex27 {
          * N = 100, recursion times = 2 ^ 100 = 1024 ^ 10 > 1,000,000,000,000,000,000,000,000,000,000
          */
         /*StdOut.println("binomial=" + binomial(100, 50, 0.25) + " COUNT=" + COUNT);*/
-        StdOut.println("betterBinomial=" + betterBinomial(3, 3, 0.25) + " COUNT2=" + COUNT2);
+        StdOut.println("betterBinomial=" + betterBinomial(5, 5, 0.25) + " COUNT2=" + COUNT2);
         /*StdOut.println("betterBinomial=" + betterBinomial(100, 50, 0.25) + " COUNT2=" + COUNT2);*/
         /*StdOut.println(myBinomial(1, 1, 0.25));
         StdOut.println(myBinomial(2, 1, 0.25));
