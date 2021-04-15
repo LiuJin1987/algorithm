@@ -8,19 +8,19 @@ import java.util.Arrays;
 
 /**
  * @author liujinlc
- * @date 2021/4/14 17:05
+ * @date 2021/4/15 10:59
  **/
-public class Ex23 {
+public class Ex28 {
     public static void main(String[] args) {
         StdOut.print("Input white list filter:");
         String filter = StdIn.readString();
         StdOut.print("Input white list filepath:");
         // resource/testfiles/chapter1/section1/Ex23.txt
         String path = StdIn.readString();
-        testBinarySearch(path, filter);
+        //removeRepeat();
     }
 
-    private static void testBinarySearch(String whiteListFile, String filter) {
+    private static void removeRepeat(String whiteListFile, String filter) {
         In in = new In(whiteListFile);
         int[] whiteList = in.readAllInts();
         Arrays.sort(whiteList);

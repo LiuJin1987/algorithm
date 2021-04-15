@@ -2,6 +2,10 @@ package chapter1.section1;
 
 import edu.princeton.cs.algs4.StdOut;
 
+/**
+ * @author liujinlc
+ * @date 2021/4/13 22:58
+ **/
 public class Ex13 {
     public static void main(String[] args) {
         int[][] matrix = {

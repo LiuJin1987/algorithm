@@ -1,5 +1,9 @@
 package chapter1.section1;
 
+/**
+ * @author liujinlc
+ * @date 2021/4/14 22:17
+ **/
 public class Ex25 {
     public static void main(String[] args) {
         /*

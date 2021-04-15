@@ -2,9 +2,6 @@ package chapter1.section1;
 
 import edu.princeton.cs.algs4.StdOut;
 
-import java.util.Map;
-import java.util.Stack;
-
 /**
  * @author liujinlc
  * @date 2021/4/14 17:24
