@@ -15,7 +15,7 @@ public class Ex23 {
         StdOut.print("Input white list filter:");
         String filter = StdIn.readString();
         StdOut.print("Input white list filepath:");
-        // resource/testfiles/chapter1/section1/Ex23.txt
+        // resource/testfiles/chapter1/section1/Ex23
         String path = StdIn.readString();
         testBinarySearch(path, filter);
     }

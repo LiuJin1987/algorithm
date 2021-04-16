@@ -18,7 +18,7 @@ import java.util.Set;
 public class Ex28 {
     public static void main(String[] args) {
         StdOut.print("Input white list filepath:");
-        // resource/testfiles/chapter1/section1/Ex28.txt
+        // resource/testfiles/chapter1/section1/Ex28
         String path = StdIn.readString();
         /*for (int i : removeDuplicateWithSet(path)) {
             StdOut.println(i);
