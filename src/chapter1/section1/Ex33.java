@@ -15,18 +15,14 @@ public class Ex33 {
     private static final Pattern WHITE_SPACE =  Pattern.compile("\\p{javaWhitespace}+");
 
     public static void main(String[] args) {
-        /*double[][] a = new double[][]{
-                {1.0, 2.0, 3.0, 4.0},
-                {5.0, 6.0, 7.0, 8.0},
-                {9.0, 10.0, 11.0, 12.0},
-                {13.0, 14.0, 15.0, 16.0}
-        };*/
 
         double[][] a = readMatrix("resource/testfiles/chapter1/section1/Ex33_a");
         double[][] b = readMatrix("resource/testfiles/chapter1/section1/Ex33_b");
         double[] x = readVector("resource/testfiles/chapter1/section1/Ex33_x");
         double[] y = readVector("resource/testfiles/chapter1/section1/Ex33_y");
 
+        StdOut.println(Matrix.dot(x, y));
+        StdOut.println();
 
         for (double[] row : Matrix.transpose(a)) {
             for (double d : row) {
@@ -34,6 +30,28 @@ public class Ex33 {
             }
             StdOut.println();
         }
+        StdOut.println();
+
+        for (double[] row : Matrix.mult(a, b)) {
+            for (double d : row) {
+                StdOut.printf(d + " ");
+            }
+            StdOut.println();
+        }
+        StdOut.println();
+
+        for (double[] row : Matrix.mult(a, x)) {
+            for (double d : row) {
+                StdOut.printf(d + " ");
+            }
+            StdOut.println();
+        }
+        StdOut.println();
+
+        for (double d : Matrix.mult(y, a)) {
+            StdOut.printf(d + " ");
+        }
+        StdOut.println();
     }
 
     private static double[][] readMatrix(String filePath) {
