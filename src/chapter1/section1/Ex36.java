@@ -5,6 +5,7 @@ import edu.princeton.cs.algs4.StdRandom;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * @author liujinlc
@@ -14,30 +15,30 @@ public class Ex36 {
 
     public static void main(String[] args) {
         if (args.length < 2) {
-            StdOut.println("Args less than 2");
-            return;
+            throw new IllegalArgumentException("Args less than 2");
         }
         try {
-            new ShuffleTest(Integer.parseInt(args[0]), Integer.parseInt(args[1])).testShuffle();
+            new ShuffleTest(Integer.parseInt(args[0]), Integer.parseInt(args[1]))
+                    .testShuffle(StdRandom::shuffle);
         } catch (NumberFormatException e) {
-            StdOut.println("Cannot parse int from args");
+            throw new NumberFormatException("Cannot parse int from args");
         }
     }
 
-    static class ShuffleTest {
-        private int arrayLength;
-        private int shuffleTimes;
+    public static class ShuffleTest {
+        private final int arrayLength;
+        private final int shuffleTimes;
 
         public ShuffleTest(int arrayLength, int shuffleTimes) {
             this.arrayLength = arrayLength;
             this.shuffleTimes = shuffleTimes;
         }
 
-        public void testShuffle() {
+        public void testShuffle(Consumer<int[]> shuffleFunc) {
             List<int[]> trialList = new ArrayList<>(shuffleTimes);
             for (int i = 0; i < shuffleTimes; i++) {
                 int[] arrayToShuffle = getInitArray(arrayLength).clone();
-                StdRandom.shuffle(arrayToShuffle);
+                shuffleFunc.accept(arrayToShuffle);
                 trialList.add(arrayToShuffle);
             }
             printArray(stat(trialList));
