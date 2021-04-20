@@ -1,5 +1,6 @@
 package chapter1.section1;
 
+import edu.princeton.cs.algs4.BinarySearch;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
@@ -28,9 +29,9 @@ public class Ex23 {
         String inputString;
         while (!"exit".equals(inputString = StdIn.readString())) {
             int key = Integer.parseInt(inputString);
-            if ("+".equals(filter) && BinarySearch.rank(key, whiteList) == -1) {
+            if ("+".equals(filter) && BinarySearch.indexOf(whiteList, key) == -1) {
                 StdOut.println(key);
-            } else if ("-".equals(filter) && BinarySearch.rank(key, whiteList) != -1) {
+            } else if ("-".equals(filter) && BinarySearch.indexOf(whiteList, key) != -1) {
                 StdOut.println(key);
             }
             StdOut.print("Input another number to check, input exit to exit:");

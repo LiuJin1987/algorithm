@@ -1,6 +1,6 @@
 package chapter1.section1;
 
-import edu.princeton.cs.algs4.StdOut;
+import common.util.ArrayPrinter;
 import edu.princeton.cs.algs4.StdRandom;
 
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ public class Ex36 {
                 shuffleFunc.accept(arrayToShuffle);
                 trialList.add(arrayToShuffle);
             }
-            printArray(stat(trialList));
+            ArrayPrinter.print(stat(trialList));
         }
 
         private int[][] stat(List<int[]> trialList) {
@@ -52,15 +52,6 @@ public class Ex36 {
                 }
             }
             return statArray;
-        }
-
-        private void printArray(int[][] array) {
-            for (int[] row : array) {
-                for (int times : row) {
-                    StdOut.printf("%d ", times);
-                }
-                StdOut.println();
-            }
         }
 
         private static int[] getInitArray(int arrayLength) {

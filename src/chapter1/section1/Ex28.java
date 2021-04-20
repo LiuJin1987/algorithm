@@ -1,5 +1,6 @@
 package chapter1.section1;
 
+import common.util.BinarySearch;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;

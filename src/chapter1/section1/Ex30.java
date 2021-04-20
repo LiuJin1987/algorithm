@@ -1,5 +1,6 @@
 package chapter1.section1;
 
+import common.util.Euclid;
 import edu.princeton.cs.algs4.StdOut;
 
 /**

@@ -1,5 +1,6 @@
 package chapter1.section1;
 
+import common.util.Euclid;
 import edu.princeton.cs.algs4.StdOut;
 
 /**
@@ -8,8 +9,8 @@ import edu.princeton.cs.algs4.StdOut;
  **/
 public class Ex24 {
     public static void main(String[] args) {
-        StdOut.println(chapter1.section1.Euclid.getGreatestCommonDivisor(105, 24));
-        StdOut.println(chapter1.section1.Euclid.getGreatestCommonDivisor(111, 111));
-        StdOut.println(chapter1.section1.Euclid.getGreatestCommonDivisor(234, 567));
+        StdOut.println(Euclid.getGreatestCommonDivisor(105, 24));
+        StdOut.println(Euclid.getGreatestCommonDivisor(111, 111));
+        StdOut.println(Euclid.getGreatestCommonDivisor(234, 567));
     }
 }

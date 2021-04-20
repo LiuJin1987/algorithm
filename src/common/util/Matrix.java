@@ -1,4 +1,4 @@
-package chapter1.section1;
+package common.util;
 
 /**
  * @author liujinlc
