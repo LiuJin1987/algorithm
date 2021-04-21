@@ -14,9 +14,9 @@ public class Euclid {
             return 1;
         }
         if (q > p) {
-            int[] swapped = swap(p, q);
-            p = swapped[0];
-            q = swapped[1];
+            int tmp = p;
+            p = q;
+            q = tmp;
         }
         int remainder = p % q;
         if (remainder == 0) {
@@ -26,9 +26,5 @@ public class Euclid {
             return getGreatestCommonDivisor(q, p % q);
         }
         return 1;
-    }
-
-    private static int[] swap(int p, int q) {
-        return new int[] {q, p};
     }
 }
