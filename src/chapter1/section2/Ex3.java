@@ -1,5 +1,6 @@
 package chapter1.section2;
 
+import common.util.ArgsChecker;
 import edu.princeton.cs.algs4.Interval1D;
 import edu.princeton.cs.algs4.Interval2D;
 import edu.princeton.cs.algs4.Point2D;
@@ -13,30 +14,29 @@ import java.util.HashMap;
  * @date 2021/4/21 14:15
  **/
 public class Ex3 {
-    static Interval2DExtend[] interval2DExtends;
 
     public static void main(String[] args) {
-        try {
-            int intervalCount = Integer.parseInt(args[0]);
-            double minCoordinate = Double.parseDouble(args[1]);
-            double maxCoordinate = Double.parseDouble(args[2]);
 
-            if (minCoordinate > maxCoordinate) {
-                StdOut.println("MinCoordinate(args[1]) is larger than" +
-                        " MaxCoordinate(args[2]), swap them:");
-                double tmp = minCoordinate;
-                minCoordinate = maxCoordinate;
-                maxCoordinate = tmp;
-            }
+        ArgsChecker.checkArgs(() -> {
+                    int intervalCount = Integer.parseInt(args[0]);
+                    double minCoordinate = Double.parseDouble(args[1]);
+                    double maxCoordinate = Double.parseDouble(args[2]);
 
-            interval2DExtends = new Interval2DTest(
-                    intervalCount, minCoordinate, maxCoordinate).generateAll();
-            Interval2DTest.draw(interval2DExtends);
-            StdOut.printf("Overlaps count: %d%n", Interval2DTest.getOverlapCount(interval2DExtends));
-            StdOut.printf("Contains count: %d%n", Interval2DTest.getContainCount(interval2DExtends));
-        } catch (ArrayIndexOutOfBoundsException e) {
-            StdOut.println("Add an integer args[0], and two double args[1], args[2] to main method and retry");
-        }
+                    if (minCoordinate > maxCoordinate) {
+                        StdOut.println("MinCoordinate(args[1]) is larger than" +
+                                " MaxCoordinate(args[2]), swap them:");
+                        double tmp = minCoordinate;
+                        minCoordinate = maxCoordinate;
+                        maxCoordinate = tmp;
+                    }
+
+                    Interval2DExtend[] interval2DExtends = new Interval2DTest(
+                            intervalCount, minCoordinate, maxCoordinate).generateAll();
+                    Interval2DTest.draw(interval2DExtends);
+                    StdOut.printf("Overlaps count: %d%n", Interval2DTest.getOverlapCount(interval2DExtends));
+                    StdOut.printf("Contains count: %d%n", Interval2DTest.getContainCount(interval2DExtends));
+                },
+                "Add an integer args[0], and two double args[1], args[2] to main method and retry");
     }
 }
 
