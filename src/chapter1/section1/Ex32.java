@@ -123,7 +123,7 @@ public class Ex32 {
 
         @Override
         public int hashCode() {
-            return (int) ((this.begin + this.end) * 100);
+            return (int) ((31 * this.begin + 31 * this.end) * 100);
         }
 
         public double getBegin() {

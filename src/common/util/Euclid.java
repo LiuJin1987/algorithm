@@ -27,4 +27,23 @@ public class Euclid {
         }
         return 1;
     }
+
+    public static long getGreatestCommonDivisor(long p, long q) {
+        if (p == 0 || q == 0) {
+            return 1;
+        }
+        if (q > p) {
+            long tmp = p;
+            p = q;
+            q = tmp;
+        }
+        long remainder = p % q;
+        if (remainder == 0) {
+            return q;
+        }
+        if (remainder > 0) {
+            return getGreatestCommonDivisor(q, p % q);
+        }
+        return 1L;
+    }
 }
